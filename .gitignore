@@ -10,3 +10,4 @@ artifacts/
 *.npy
 *.log
 .DS_Store
+!translators/*/linear/best.pt

@@ -83,23 +83,11 @@ class ResidualTranslator(nn.Module):
         return self.output_proj(h)
 
 
-class RidgeTranslator(nn.Module):
-    def __init__(self, in_dim: int, hidden_dim: int, out_dim: int) -> None:
-        super().__init__()
-        del hidden_dim
-        self.weight = nn.Parameter(torch.zeros(out_dim, in_dim))
-        self.bias = nn.Parameter(torch.zeros(out_dim))
-
-    def forward(self, x: torch.Tensor) -> torch.Tensor:
-        return F.linear(x, self.weight, self.bias)
-
-
 ARCHITECTURE_BUILDERS = {
     "linear": LinearTranslator,
     "3layer": ThreeLayerTranslator,
     "4layer": FourLayerTranslator,
     "residual": ResidualTranslator,
-    "ridge": RidgeTranslator,
 }
 
 
