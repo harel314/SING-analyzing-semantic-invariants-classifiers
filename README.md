@@ -1,51 +1,140 @@
 # SING: Analyzing Semantic Invariants in Classifiers
 
-v1 focuses on single-image analysis with a lightweight workflow:
+Paper License: CC BY 4.0  
+Python
 
-1. load a classifier wrapper (`resnet` or `dinovit1`)
-2. load a trained translator from `translators/`
-3. load Kakao UnCLIP backend
-4. generate original and principal (null-removed) images for selected seeds
-5. compute IS/AS and dictionary scores
+> Official repository for the paper:  
+> **SING: Analyzing Semantic Invariants in Classifiers**  
+> Accepted to **CVPR 2026**.
 
-## Important backend note
+Paper (coming soon) • Demo (coming soon) • Webpage (coming soon) • Video (coming soon)
 
-- This project uses `kakaobrain/karlo-v1-alpha-image-variations`.
-- Translators are expected to be trained for this embedding space.
-- This is not OpenAI CLIP image generation.
+---
+
+## Overview
+
+SING studies semantic structure in classifier feature spaces through null-space geometry.
+Given a single image and a selected model, SING:
+
+- extracts classifier features
+- removes null-space components using the classifier head
+- translates features to the Kakao/Karlo embedding space
+- computes semantic scores (`IS`, `AS`)
+- generates principal-space image variations
+
+This repository focuses on a practical, lightweight v1 pipeline with no dataset requirement for end users.
+
+### Key Contributions
+
+- Null-space based semantic analysis pipeline for pretrained classifiers.
+- Unified translator loading with metadata validation.
+- Single-image evaluation flow with `IS` and `AS`.
+- Dictionary-based scoring for curated attributes and main classes.
+- Reproducible generation using Kakao/Karlo image-variation backend.
+
+---
+
+## Colab Notebooks
+
+| Notebook | Description | Link |
+| --- | --- | --- |
+| `notebooks/01_single_image_quickstart.ipynb` | Single-image walkthrough: load, project, translate, score, plot | Coming soon |
+
+---
 
 ## Installation
 
 ```bash
 python -m venv .venv
 source .venv/bin/activate
+pip install -r requirements.txt
 pip install -e .
 ```
 
-## Minimal CLI usage
+## Requirements
+
+Core dependencies include:
+
+- PyTorch
+- torchvision / timm / transformers
+- diffusers + accelerate
+- numpy, pillow, pyyaml
+
+> Note: generation uses `kakaobrain/karlo-v1-alpha-image-variations` via `diffusers`.
+> Translators in this repo are aligned to this embedding backend.
+
+---
+
+## Usage
+
+### 1) Run CLI on a single image
 
 ```bash
 python -m sing.cli \
-  --image path/to/image.jpg \
+  --image samples/border_collie_n02106166.jpeg \
   --model resnet \
   --seeds 42 1337 \
   --output-dir outputs/demo
 ```
 
-## Translator assets
+### 2) Run notebook demo
 
-Place translator checkpoints under:
+Open:
 
 ```text
-translators/<model_name>/<translator_name>/
+notebooks/01_single_image_quickstart.ipynb
+```
+
+### 3) Translators layout
+
+```text
+translators/<model_name>/linear/
   metadata.yaml
   best.pt
 ```
 
-See `translators/README.md` and `configs/translator_metadata_template.yaml`.
+---
 
-## Runtime
+## Repository Structure
 
-- GPU is preferred when available.
-- CPU is supported for single-image runs.
-- TPU is not required or used by the current runtime code.
+```text
+SING-analyzing-semantic-invariants-classifiers/
+├── src/                     # Main Python package (sing)
+├── configs/                 # Model/runtime/translator config files
+├── translators/             # Linear translator checkpoints + metadata
+├── samples/                 # Small example images for quick testing
+├── notebooks/               # Reproducible notebook demos
+├── tests/                   # Unit tests
+├── docker/                  # Container notes/assets
+├── misc/                    # Auxiliary resources and scripts
+├── docs/                    # Agent notes + project TODO
+├── index.html               # GitHub Pages landing file
+└── README.md
+```
+
+---
+
+## Citation
+
+BibTeX will be added once camera-ready metadata is finalized.
+
+```bibtex
+@inproceedings{sing2026,
+  title={SING: Analyzing Semantic Invariants in Classifiers},
+  author={TBD},
+  booktitle={CVPR},
+  year={2026}
+}
+```
+
+---
+
+## Presentation Video
+
+Coming soon.
+
+---
+
+## Contact
+
+For questions and collaborations, open an issue in this repository.
