@@ -1,0 +1,10 @@
+# Generation defaults are kept in sync with KakaoUnclipWrapper.
+# Seed list order is preserved and used as generation order.
+device: null
+model: "resnet"
+translator_name: "linear"
+seeds: [42, 1337, 2026]
+generation:
+  decoder_steps: 25
+  super_res_steps: 7
+  guidance_scale: 8.0

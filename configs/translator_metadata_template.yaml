@@ -1,0 +1,13 @@
+model_name: "resnet"
+translator_name: "linear"
+# Supported: linear, 3layer, 4layer, residual
+architecture: "linear"
+# Must include "kakao" or "karlo" token
+embedding_backend: "kakao_karlo_v1_alpha_image_variations"
+# Positive integer dimensions only
+in_dim: 2048
+out_dim: 768
+# Optional; defaults to in_dim when omitted
+hidden_dim: 2048
+# Relative path under translators/<model>/<translator>/ (no "..", no absolute path)
+checkpoint_file: "best.pt"

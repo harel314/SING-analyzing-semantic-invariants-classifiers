@@ -1,0 +1,14 @@
+defaults:
+  bitresnet: linear
+  convnext: linear
+  deit: linear
+  densenet: linear
+  dinov2: linear
+  dinovit1: linear
+  efficientnet: linear
+  eva02_large: linear
+  resnet: linear
+  resnext: linear
+  swin_large: linear
+  vgg16: linear
+  vgg19: linear

@@ -1,0 +1,8 @@
+model_name: eva02_large
+translator_name: linear
+architecture: linear
+embedding_backend: kakao_karlo_v1_alpha_image_variations
+in_dim: 1024
+out_dim: 768
+hidden_dim: 1024
+checkpoint_file: best.pt

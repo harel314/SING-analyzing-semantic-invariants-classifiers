@@ -1,0 +1,2 @@
+- [ ] Remove `misc/convert_csv_to_npz.py` before merging to main branch.
+- [ ] Audit and remove any lingering `resnet50` artifact where `resnext101` should be referenced.

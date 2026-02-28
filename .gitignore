@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+outputs/
+artifacts/
+*.pt
+*.pth
+*.npz
+*.npy
+*.log
+.DS_Store

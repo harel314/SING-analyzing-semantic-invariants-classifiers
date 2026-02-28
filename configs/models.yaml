@@ -1,0 +1,79 @@
+models:
+  resnet:
+    source: torchvision
+    model_id: resnet50
+    feature_dim: 2048
+    feature_layer: classifier_input
+    classifier_layer: fc
+  dinovit1:
+    source: timm
+    model_id: vit_large_patch16_224
+    feature_dim: 1024
+    feature_layer: classifier_input
+    classifier_layer: head
+  bitresnet:
+    source: timm
+    model_id: resnetv2_50x1_bit.goog_in21k_ft_in1k
+    feature_dim: 2048
+    feature_layer: classifier_input
+    classifier_layer: head.fc
+  resnext:
+    source: timm
+    model_id: resnext101_32x8d.fb_wsl_ig1b_ft_in1k
+    feature_dim: 2048
+    feature_layer: classifier_input
+    classifier_layer: fc
+  efficientnet:
+    source: timm
+    model_id: tf_efficientnet_b0.ns_jft_in1k
+    feature_dim: 1280
+    feature_layer: classifier_input
+    classifier_layer: classifier
+  dinov2:
+    source: transformers
+    model_id: facebook/dinov2-large-imagenet1k-1-layer
+    feature_dim: 2048
+    feature_layer: classifier_input
+    classifier_layer: classifier
+  swin_large:
+    source: timm
+    model_id: swin_large_patch4_window7_224
+    feature_dim: 1536
+    feature_layer: classifier_input
+    classifier_layer: head.fc
+  deit:
+    source: timm
+    model_id: deit3_large_patch16_224
+    feature_dim: 1024
+    feature_layer: classifier_input
+    classifier_layer: head
+  densenet:
+    source: torchvision
+    model_id: densenet121
+    feature_dim: 1024
+    feature_layer: classifier_input
+    classifier_layer: classifier
+  eva02_large:
+    source: timm
+    model_id: eva02_large_patch14_448.mim_in22k_ft_in22k_in1k
+    feature_dim: 1024
+    feature_layer: classifier_input
+    classifier_layer: head
+  convnext:
+    source: timm
+    model_id: convnext_base.fb_in22k_ft_in1k
+    feature_dim: 1024
+    feature_layer: classifier_input
+    classifier_layer: head.fc
+  vgg16:
+    source: torchvision
+    model_id: vgg16
+    feature_dim: 4096
+    feature_layer: classifier_input
+    classifier_layer: classifier.6
+  vgg19:
+    source: torchvision
+    model_id: vgg19
+    feature_dim: 4096
+    feature_layer: classifier_input
+    classifier_layer: classifier.6
