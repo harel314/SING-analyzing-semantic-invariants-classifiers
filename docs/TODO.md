@@ -1,0 +1,2 @@
+- [ ] Remove `misc/convert_csv_to_npz.py` before merging to main branch.
+- [ ] Add metric-level references to the SING paper in code/docs so readers can map AS/IS definitions to the paper sections.
