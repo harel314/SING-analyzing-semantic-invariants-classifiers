@@ -91,8 +91,8 @@ class SingleImageAnalyzer:
         is_value = float(compute_is(translated_original, translated_principal).mean().item())
         as_value = None
 
-        simple_dict_path = self.repo_root / "misc" / "simple_dictionary_embeddings.json"
-        main_dict_path = self.repo_root / "misc" / "main_classes_dictionary_embeddings.json"
+        simple_dict_path = self.repo_root / "misc" / "embeddings" / "simple_dictionary_embeddings.json"
+        main_dict_path = self.repo_root / "misc" / "embeddings" / "main_classes_dictionary_embeddings.json"
         simple_scores: list[DictionaryScore] = []
         main_scores: list[DictionaryScore] = []
         if simple_dict_path.exists():

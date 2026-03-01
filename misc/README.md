@@ -1,7 +1,7 @@
 # Misc Assets
 
-- `simple_dictionary_embeddings.json`: dictionary embeddings for simple concepts.
-- `main_classes_dictionary_embeddings.json`: dictionary embeddings for main classes.
+- `embeddings/simple_dictionary_embeddings.json`: dictionary embeddings for simple concepts.
+- `embeddings/main_classes_dictionary_embeddings.json`: dictionary embeddings for main classes.
 
 Both files are placeholders in v1.
 
