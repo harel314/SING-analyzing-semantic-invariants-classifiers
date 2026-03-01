@@ -36,9 +36,9 @@ This repository focuses on a practical, lightweight v1 pipeline with no dataset 
 
 ## Colab Notebooks
 
-| Notebook | Description | Link |
-| --- | --- | --- |
-| `notebooks/01_single_image_quickstart.ipynb` | Single-image walkthrough: load, project, translate, score, plot | Coming soon |
+| Notebook | Description |
+| --- | --- |
+| `notebooks/01_single_image_quickstart.ipynb` | Single-image walkthrough: load, project, translate, score, plot |
 
 ---
 

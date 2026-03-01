@@ -19,6 +19,7 @@ dependencies = [
   "diffusers>=0.30",
   "transformers>=4.40,<5",
   "accelerate>=0.30",
+  "matplotlib>=3.8",
 ]
 
 [project.optional-dependencies]

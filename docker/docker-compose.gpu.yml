@@ -1,0 +1,16 @@
+services:
+  sing-dev:
+    image: harel314/sing:gpu-cuda12.4
+    container_name: sing-dev
+    gpus: all
+    shm_size: "8g"
+    working_dir: /workspace
+    volumes:
+      - ..:/workspace
+    environment:
+      - HF_HOME=/workspace/.cache/huggingface
+    stdin_open: true
+    tty: true
+    entrypoint: ["/bin/bash", "-lc", "sleep infinity"]
+    ports:
+      - "8888:8888"
