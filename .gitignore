@@ -8,6 +8,8 @@ artifacts/
 *.pt
 *.pth
 *.npz
+!misc/embeddings/attribute_embeddings_broden_style_fp16.npz
+!misc/embeddings/imagenet_text_embeddings_fp16.npz
 *.npy
 *.log
 .DS_Store
