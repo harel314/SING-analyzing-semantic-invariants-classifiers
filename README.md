@@ -9,28 +9,41 @@ Python
 
 Paper (coming soon) • Demo (coming soon) • Webpage (coming soon) • Video (coming soon)
 
+![SING teaser](figs/teaser2.png)
+
 ---
 
 ## Overview
 
-SING studies semantic structure in classifier feature spaces through null-space geometry.
-Given a single image and a selected model, SING:
+All classifiers contain invariants induced by the geometry of their final linear head.  
+SING (Semantic Interpretation of the Null-space Geometry) makes these invariants interpretable:
 
-- extracts classifier features
-- removes null-space components using the classifier head
-- translates features to the Kakao/Karlo embedding space
-- computes semantic scores (`IS`, `AS`)
-- generates principal-space image variations
+- it builds equivalent feature pairs through null-space analysis
+- it translates features into a vision-language embedding space
+- it quantifies semantic drift with `IS` and `AS`
+- it visualizes the semantic effect of invariants on generated images
 
-This repository focuses on a practical, lightweight v1 pipeline with no dataset requirement for end users.
+This repository provides a practical v1 flow for single-image analysis without requiring a dataset pipeline.
 
-### Key Contributions
+### Why it matters
 
-- Null-space based semantic analysis pipeline for pretrained classifiers.
-- Unified translator loading with metadata validation.
-- Single-image evaluation flow with `IS` and `AS`.
-- Dictionary-based scoring for curated attributes and main classes.
-- Reproducible generation using Kakao/Karlo image-variation backend.
+- turns null-space geometry into human-readable semantic diagnostics
+- supports class/model comparison through leakage into invariant directions
+- provides both score-level (`IS`/`AS`) and image-level interpretation
+- enables quick experiments from one image via CLI, notebooks, or Docker
+
+---
+
+## Method
+
+Method diagram from the paper: [`figs/method.pdf`](figs/method.pdf)
+
+SING follows four core steps:
+
+1. Decompose classifier head weights with SVD into principal/null subspaces.  
+2. Train/load a translator from classifier features to a multimodal embedding space.  
+3. Build equivalent feature pairs via null-space projection/manipulation.  
+4. Measure and visualize semantic variation with text/image projections.
 
 ---
 
@@ -84,10 +97,17 @@ Use prebuilt images from Docker Hub:
 - GPU: `harel314/sing:gpu-cuda12.4`
 - CPU: `harel314/sing:cpu`
 
+Create local cache once:
+
+```bash
+mkdir -p .cache/huggingface
+```
+
 #### GPU run (recommended)
 
 ```bash
-docker run --rm --gpus all -v "$PWD":/workspace -w /workspace \
+docker run --rm --gpus all -e HF_HOME=/workspace/.cache/huggingface \
+  -v "$PWD":/workspace -v "$PWD/.cache/huggingface":/workspace/.cache/huggingface -w /workspace \
   harel314/sing:gpu-cuda12.4 \
   --image samples/border_collie_n02106166.jpeg \
   --model resnet \
@@ -98,7 +118,8 @@ docker run --rm --gpus all -v "$PWD":/workspace -w /workspace \
 #### CPU run
 
 ```bash
-docker run --rm -v "$PWD":/workspace -w /workspace \
+docker run --rm -e HF_HOME=/workspace/.cache/huggingface \
+  -v "$PWD":/workspace -v "$PWD/.cache/huggingface":/workspace/.cache/huggingface -w /workspace \
   harel314/sing:cpu \
   --image samples/border_collie_n02106166.jpeg \
   --model resnet \
@@ -112,11 +133,15 @@ Start a long-running container and attach from Cursor Remote Explorer:
 
 ```bash
 # GPU
-docker run -d --name sing-dev --entrypoint /bin/bash --gpus all -p 8888:8888 -v "$PWD":/workspace -w /workspace \
+docker run -d --name sing-dev --entrypoint /bin/bash --gpus all -p 8888:8888 \
+  -e HF_HOME=/workspace/.cache/huggingface \
+  -v "$PWD":/workspace -v "$PWD/.cache/huggingface":/workspace/.cache/huggingface -w /workspace \
   harel314/sing:gpu-cuda12.4 /bin/bash -lc "sleep infinity"
 
 # CPU
-docker run -d --name sing-dev-cpu --entrypoint /bin/bash -p 8889:8888 -v "$PWD":/workspace -w /workspace \
+docker run -d --name sing-dev-cpu --entrypoint /bin/bash -p 8889:8888 \
+  -e HF_HOME=/workspace/.cache/huggingface \
+  -v "$PWD":/workspace -v "$PWD/.cache/huggingface":/workspace/.cache/huggingface -w /workspace \
   harel314/sing:cpu /bin/bash -lc "sleep infinity"
 ```
 
