@@ -112,11 +112,11 @@ Start a long-running container and attach from Cursor Remote Explorer:
 
 ```bash
 # GPU
-docker run -d --name sing-dev --gpus all -p 8888:8888 -v "$PWD":/workspace -w /workspace \
+docker run -d --name sing-dev --entrypoint /bin/bash --gpus all -p 8888:8888 -v "$PWD":/workspace -w /workspace \
   harel314/sing:gpu-cuda12.4 /bin/bash -lc "sleep infinity"
 
 # CPU
-docker run -d --name sing-dev-cpu -p 8889:8888 -v "$PWD":/workspace -w /workspace \
+docker run -d --name sing-dev-cpu --entrypoint /bin/bash -p 8889:8888 -v "$PWD":/workspace -w /workspace \
   harel314/sing:cpu /bin/bash -lc "sleep infinity"
 ```
 
