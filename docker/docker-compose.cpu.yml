@@ -1,0 +1,15 @@
+services:
+  sing-dev-cpu:
+    image: harel314/sing:cpu
+    container_name: sing-dev-cpu
+    shm_size: "8g"
+    working_dir: /workspace
+    volumes:
+      - ..:/workspace
+    environment:
+      - HF_HOME=/workspace/.cache/huggingface
+    stdin_open: true
+    tty: true
+    entrypoint: ["/bin/bash", "-lc", "sleep infinity"]
+    ports:
+      - "8889:8888"
