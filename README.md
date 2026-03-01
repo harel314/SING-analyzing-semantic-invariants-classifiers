@@ -9,7 +9,7 @@ Python
 
 Paper (coming soon) • Demo (coming soon) • Webpage (coming soon) • Video (coming soon)
 
-![SING teaser](figs/teaser2.png)
+![SING teaser](figs/teaser.png)
 
 ---
 
@@ -36,7 +36,7 @@ This repository provides a practical v1 flow for single-image analysis without r
 
 ## Method
 
-Method diagram from the paper: [`figs/method.pdf`](figs/method.pdf)
+Method diagram from the paper: [`figs/method.png`](figs/method.png)
 
 SING follows four core steps:
 
@@ -160,6 +160,9 @@ translators/<model_name>/linear/
   metadata.yaml
   best.pt
 ```
+
+This repo includes translator checkpoints for many backbones, so you can choose between 13 translators in `translators/`, including:
+`resnet`, `dinovit1`, `dinov2`, `vgg16`, `vgg19`, `convnext`, `deit`, `densenet`, `efficientnet`, `eva02_large`, `resnext`, `bitresnet`, `swin_large`.
 
 ---
 

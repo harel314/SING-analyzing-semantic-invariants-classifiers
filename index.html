@@ -74,7 +74,7 @@
     .abstract-text, .abstract-teaser-wrapper { flex:1 1 45%; min-width:280px; display:flex; flex-direction:column; }
     .abstract-teaser-wrapper img { object-fit:contain; width:100%; max-width:520px; border-radius:14px; margin:auto; display:block; }
     @media (max-width:900px) { .abstract-text, .abstract-teaser-wrapper { flex:1 1 100%; } }
-    .method-figure { width:100%; height:680px; border:none; border-radius:14px; background:#fff; box-shadow:0 6px 14px rgba(0,0,0,0.08); }
+    .method-figure { width:100%; height:680px; border:none; border-radius:14px; background:#fff; box-shadow:0 6px 14px rgba(0,0,0,0.08); object-fit:contain; display:block; }
     @media (max-width:900px) { .method-figure { height:520px; } }
 
     pre { background:#eaeaea; padding:16px; border-radius:12px; overflow-x:auto; color:#222; }
@@ -134,7 +134,7 @@
           </p>
         </div>
         <div class="abstract-teaser-wrapper">
-          <img src="figs/teaser2.png" alt="SING teaser figure showing benign and problematic invariants">
+          <img src="figs/teaser.png" alt="SING teaser figure showing benign and problematic invariants">
         </div>
       </div>
     </div>
@@ -148,9 +148,7 @@
         vision-language space via a translator, constructs equivalent pairs through null-space operations, and
         measures semantic effects with textual and visual diagnostics.
       </p>
-      <object class="method-figure" data="figs/method.pdf" type="application/pdf">
-        <p>Unable to render PDF in this browser. Open: <a href="figs/method.pdf">figs/method.pdf</a></p>
-      </object>
+      <img class="method-figure" src="figs/method.png" alt="SING method overview figure">
     </div>
   </section>
 
