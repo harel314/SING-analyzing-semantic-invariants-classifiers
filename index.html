@@ -1,13 +1,203 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SING v1</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="SING - CVPR 2026 paper: Analyzing Semantic Invariants in Classifiers" />
+  <title>SING - Analyzing Semantic Invariants in Classifiers</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/ad96f96272.js" crossorigin="anonymous"></script>
+
+  <style>
+    :root {
+      --accent:#5b7cfa;
+      --accent-dark:#3f5ed0;
+      --bg:#fafafa;
+      --card-bg:linear-gradient(145deg,#ffffff,#eef2ff);
+    }
+    html,body { height:100%; }
+    body {
+      font-family:'Roboto',sans-serif;
+      background:var(--bg);
+      color:#222;
+      margin:0;
+      padding-top:70px;
+      overflow-x:hidden;
+    }
+    h1,h2,h3{ font-family:'Poppins',sans-serif; margin:0; }
+    a { color:#243b8a; text-decoration:none; position:relative; transition:0.24s; }
+    a:hover { color:var(--accent); }
+    a::after { content:''; position:absolute; width:0; height:2px; bottom:-2px; left:0; background-color:var(--accent); transition:width 0.25s ease-in-out; }
+    a:hover::after{ width:100%; }
+
+    .topnav {
+      position:fixed; top:0; left:0; right:0;
+      background:var(--accent);
+      display:flex; justify-content:center; gap:6px;
+      z-index:1000;
+      box-shadow:0 4px 6px rgba(0,0,0,0.1);
+      padding:10px 10px;
+      align-items:center; flex-wrap:wrap;
+    }
+    .topnav a { color:white; padding:8px 14px; text-align:center; font-weight:600; font-size:0.98rem; border-radius:6px; }
+    .topnav a:hover { background:rgba(255,255,255,0.12); }
+
+    section {
+      width:100%;
+      padding:48px 5%;
+      margin:20px 0;
+      border-radius:20px;
+      box-shadow:0 10px 20px rgba(91,124,250,0.12);
+      transition:transform 0.25s, box-shadow 0.25s;
+      background:var(--card-bg);
+    }
+    section:hover { transform:translateY(-6px); box-shadow:0 20px 40px rgba(91,124,250,0.18); }
+    .section-content { max-width:1000px; margin:0 auto; }
+
+    h1 { font-size:2.6rem; font-weight:800; text-align:center; color:var(--accent); line-height:1.05; }
+    h2 { font-size:1.8rem; color:#243b8a; margin-bottom:14px; text-align:center; }
+    p, li { font-size:1.05rem; line-height:1.6; color:#333; margin:0 0 12px 0; }
+
+    .btn-row { display:flex; justify-content:center; align-items:center; flex-wrap:wrap; gap:10px; margin-top:16px; }
+    .btn-custom {
+      display:inline-flex; align-items:center; gap:8px;
+      padding:6px 14px;
+      background:var(--accent);
+      color:#fff; border:none; border-radius:9px;
+      font-weight:600; transition:0.18s; cursor:pointer; text-decoration:none;
+    }
+    .btn-custom i { font-size:14px; }
+    .btn-custom:hover { background:var(--accent-dark); transform:translateY(-2px); }
+
+    .abstract-container { display:flex; gap:18px; align-items:stretch; justify-content:center; flex-wrap:wrap; margin-top:8px; }
+    .abstract-text, .abstract-teaser-wrapper { flex:1 1 45%; min-width:280px; display:flex; flex-direction:column; }
+    .abstract-teaser-wrapper img { object-fit:contain; width:100%; max-width:420px; border-radius:14px; margin:auto; display:block; }
+    @media (max-width:900px) { .abstract-text, .abstract-teaser-wrapper { flex:1 1 100%; } }
+
+    pre { background:#eaeaea; padding:16px; border-radius:12px; overflow-x:auto; color:#222; }
+    footer { text-align:center; padding:44px 20px; font-size:0.95rem; color:#555; }
+  </style>
 </head>
+
 <body>
-  <h1>SING: Analyzing Semantic Invariants in Classifiers</h1>
-  <p>v1 provides single-image analysis with model wrappers, translator loading, and Kakao UnCLIP generation.</p>
-  <p>Repository: <a href="https://github.com/">SING-analyzing-semantic-invariants-classifiers</a></p>
+  <div class="topnav" role="navigation" aria-label="Main navigation">
+    <a href="#hero">Home</a>
+    <a href="#abstract">Abstract</a>
+    <a href="#contributions">Key Contributions</a>
+    <a href="#repo">Repository</a>
+    <a href="#bibtex">BibTeX</a>
+  </div>
+
+  <section id="hero" aria-label="Hero section">
+    <div class="section-content">
+      <h1>SING: Analyzing Semantic Invariants in Classifiers</h1>
+      <h2>CVPR 2026 (Accepted)</h2>
+      <p style="text-align:center;">
+        Official project page for the SING paper.
+      </p>
+
+      <div class="btn-row" role="toolbar" aria-label="Primary links">
+        <a class="btn-custom" href="#" aria-label="Paper link placeholder">
+          <i class="fas fa-file-alt" aria-hidden="true"></i> Paper (Coming Soon)
+        </a>
+        <a class="btn-custom" href="https://github.com/harel314/SING-analyzing-semantic-invariants-classifiers" target="_blank" rel="noopener" aria-label="Open code on GitHub">
+          <i class="fab fa-github" aria-hidden="true"></i> Code
+        </a>
+        <a class="btn-custom" href="#" aria-label="Demo link placeholder">
+          <i class="fas fa-flask" aria-hidden="true"></i> Demo (Coming Soon)
+        </a>
+        <a class="btn-custom" href="#" aria-label="Video link placeholder">
+          <i class="fas fa-video" aria-hidden="true"></i> Video (Coming Soon)
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="abstract" aria-label="Abstract section">
+    <div class="section-content">
+      <h2>Abstract</h2>
+      <div class="abstract-container">
+        <div class="abstract-text">
+          <p>
+            SING analyzes semantic structure in classifier representations via null-space geometry.
+            The method projects features to remove null components, translates them into a shared embedding
+            space, and quantifies semantic changes with image-level and attribute-level scores.
+          </p>
+          <p>
+            This repository provides a lightweight, reproducible implementation for single-image analysis,
+            including model loading, translator loading, principal projection, metric computation, and generation.
+          </p>
+        </div>
+        <div class="abstract-teaser-wrapper">
+          <img src="samples/border_collie_n02106166.jpeg" alt="Placeholder teaser: replace with paper figure">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contributions" aria-label="Key contributions">
+    <div class="section-content">
+      <h2>Key Contributions</h2>
+      <ul>
+        <li>Null-space based semantic analysis pipeline for pretrained classifiers.</li>
+        <li>Model-agnostic translator workflow with metadata and checkpoint validation.</li>
+        <li>Single-image metrics and generation workflow for reproducible analysis.</li>
+        <li>Ready-to-run notebook and CLI paths for practical usage.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="repo" aria-label="Repository section">
+    <div class="section-content">
+      <h2>Repository</h2>
+      <p>
+        Main codebase:
+        <a href="https://github.com/harel314/SING-analyzing-semantic-invariants-classifiers" target="_blank" rel="noopener">
+          SING-analyzing-semantic-invariants-classifiers
+        </a>
+      </p>
+      <p>
+        A full camera-ready page update (figures, links, bib details, video/demo embeds) will be added once available.
+      </p>
+    </div>
+  </section>
+
+  <section id="bibtex" aria-label="BibTeX">
+    <div class="section-content">
+      <h2>BibTeX</h2>
+      <div style="position: relative; display: flex; flex-direction: column; max-width:700px; margin:0 auto;">
+        <pre id="bibtex-text" style="margin:0; padding-bottom:40px;">@inproceedings{sing2026,
+  title={SING: Analyzing Semantic Invariants in Classifiers},
+  author={TBD},
+  booktitle={CVPR},
+  year={2026}
+}</pre>
+        <button class="btn-custom" id="copy-bibtex-btn" style="position:absolute; bottom:0; right:0; margin:10px;">
+          Copy BibTeX
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2026 SING Authors
+  </footer>
+
+  <script>
+    const copyBtn = document.getElementById('copy-bibtex-btn');
+    const bibtexText = document.getElementById('bibtex-text');
+    copyBtn.addEventListener('click', () => {
+      navigator.clipboard.writeText(bibtexText.innerText)
+        .then(() => {
+          copyBtn.innerText = 'Copied!';
+          setTimeout(() => { copyBtn.innerText = 'Copy BibTeX'; }, 1500);
+        })
+        .catch(() => {
+          copyBtn.innerText = 'Failed';
+          setTimeout(() => { copyBtn.innerText = 'Copy BibTeX'; }, 1500);
+        });
+    });
+  </script>
 </body>
 </html>
