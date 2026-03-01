@@ -77,7 +77,50 @@ python -m sing.cli \
   --output-dir outputs/demo
 ```
 
-### 2) Run notebook demo
+### 2) Run with Docker images
+
+Use prebuilt images from Docker Hub:
+
+- GPU: `harel314/sing:gpu-cuda12.4`
+- CPU: `harel314/sing:cpu`
+
+#### GPU run (recommended)
+
+```bash
+docker run --rm --gpus all -v "$PWD":/workspace -w /workspace \
+  harel314/sing:gpu-cuda12.4 \
+  --image samples/border_collie_n02106166.jpeg \
+  --model resnet \
+  --seeds 42 1337 \
+  --output-dir outputs/demo
+```
+
+#### CPU run
+
+```bash
+docker run --rm -v "$PWD":/workspace -w /workspace \
+  harel314/sing:cpu \
+  --image samples/border_collie_n02106166.jpeg \
+  --model resnet \
+  --seeds 42 1337 \
+  --output-dir outputs/demo
+```
+
+#### Notebook/Remote IDE container
+
+Start a long-running container and attach from Cursor Remote Explorer:
+
+```bash
+# GPU
+docker run -d --name sing-dev --gpus all -p 8888:8888 -v "$PWD":/workspace -w /workspace \
+  harel314/sing:gpu-cuda12.4 /bin/bash -lc "sleep infinity"
+
+# CPU
+docker run -d --name sing-dev-cpu -p 8889:8888 -v "$PWD":/workspace -w /workspace \
+  harel314/sing:cpu /bin/bash -lc "sleep infinity"
+```
+
+### 3) Run notebook demo
 
 Open:
 
@@ -85,7 +128,7 @@ Open:
 notebooks/01_single_image_quickstart.ipynb
 ```
 
-### 3) Translators layout
+### 4) Translators layout
 
 ```text
 translators/<model_name>/linear/
