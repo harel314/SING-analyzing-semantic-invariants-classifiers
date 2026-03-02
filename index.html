@@ -83,7 +83,7 @@
     @media (max-width:900px) { .abstract-text, .abstract-teaser-wrapper { flex:1 1 100%; } }
     .insights-grid {
       display:grid;
-      grid-template-columns:1fr;
+      grid-template-columns:repeat(2, minmax(0, 1fr));
       gap:22px;
       margin-top:14px;
     }
@@ -99,13 +99,21 @@
     }
     .card-insight:hover { transform:translateY(-6px); box-shadow:0 18px 34px rgba(91,124,250,0.2); }
     .card-insight h3 { color:var(--accent); margin-bottom:10px; text-align:center; }
-    .card-body { display:flex; gap:20px; align-items:center; }
-    .card-image { flex:0 0 55%; }
+    .card-body { display:flex; flex-direction:column; gap:14px; align-items:center; }
+    .card-image { width:100%; }
     .card-image img { width:100%; max-width:520px; height:auto; object-fit:contain; border-radius:14px; display:block; margin:auto; }
-    .card-text { flex:0 0 45%; }
+    .card-text { width:100%; }
     @media (max-width:900px) {
-      .card-body { flex-direction:column; }
-      .card-image, .card-text { flex:1 1 100%; }
+      .insights-grid { grid-template-columns:1fr; }
+    }
+    .contrib-grid { display:grid; grid-template-columns:1fr; gap:22px; margin-top:14px; }
+    .contrib-card-body { display:flex; flex-direction:row; gap:20px; align-items:center; }
+    .contrib-card-image { flex:0 0 52%; }
+    .contrib-card-image img { width:100%; max-width:520px; height:auto; object-fit:contain; border-radius:14px; display:block; margin:auto; }
+    .contrib-card-text { flex:0 0 48%; }
+    @media (max-width:900px) {
+      .contrib-card-body { flex-direction:column; }
+      .contrib-card-image, .contrib-card-text { flex:1 1 100%; width:100%; }
     }
 
     pre { background:#eaeaea; padding:16px; border-radius:12px; overflow-x:auto; color:#222; }
@@ -118,7 +126,7 @@
     <a href="#hero">Home</a>
     <a href="#abstract">Abstract</a>
     <a href="#method">Method</a>
-    <a href="#contributions">Key Contributions</a>
+    <a href="#contributions">Key Insights</a>
     <a href="#repo">Repository</a>
     <a href="#bibtex">BibTeX</a>
   </div>
@@ -127,12 +135,9 @@
     <div class="section-content">
       <h1>SING: Analyzing Semantic Invariants in Classifiers</h1>
       <h2>CVPR 2026</h2>
-      <p style="text-align:center;">
-        Project page for SING.
-      </p>
       <div class="authors-container">
         <div class="author">
-          <a href="https://www.linkedin.com/" target="_blank" rel="noopener"><img src="figs/authors/harel_yadid.jfif" alt="Harel Yadid"></a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener"><img src="figs/technion.png" alt="Harel Yadid"></a>
           <a href="https://www.linkedin.com/" target="_blank" rel="noopener">Harel Yadid</a>
         </div>
         <div class="author">
@@ -197,36 +202,36 @@
 
   <section id="method" aria-label="Method section">
     <div class="section-content">
-      <h2>Method (4-Step Cards)</h2>
+      <h2>Method</h2>
       <p>
-        You can replace each card image with a cropped panel later. For now, all cards use `figs/method.png`.
+        Four-step method view from the paper.
       </p>
       <div class="insights-grid">
         <div class="card-insight">
-          <h3>1) Extract Null/Principal Projectors</h3>
+          <h3>Extract Null/Principal Projectors</h3>
           <div class="card-body">
-            <div class="card-image"><img src="figs/method.png" alt="Method step 1 placeholder"></div>
+            <div class="card-image"><img src="figs/method/method_a.png" alt="Method step 1"></div>
             <div class="card-text"><p>Decompose classifier-head weights with SVD to obtain principal and null subspaces.</p></div>
           </div>
         </div>
         <div class="card-insight">
-          <h3>2) Train/Load Translator</h3>
+          <h3>Train/Load Translator</h3>
           <div class="card-body">
-            <div class="card-image"><img src="figs/method.png" alt="Method step 2 placeholder"></div>
+            <div class="card-image"><img src="figs/method/method_b.png" alt="Method step 2"></div>
             <div class="card-text"><p>Map classifier features into a shared vision-language embedding space.</p></div>
           </div>
         </div>
         <div class="card-insight">
-          <h3>3) Create Equivalent Pair</h3>
+          <h3>Create Equivalent Pair</h3>
           <div class="card-body">
-            <div class="card-image"><img src="figs/method.png" alt="Method step 3 placeholder"></div>
+            <div class="card-image"><img src="figs/method/method_c.png" alt="Method step 3"></div>
             <div class="card-text"><p>Construct equivalent features by null-space projection/manipulation while preserving logits.</p></div>
           </div>
         </div>
         <div class="card-insight">
-          <h3>4) Translate, Measure, Visualize</h3>
+          <h3>Translate, Measure, Visualize</h3>
           <div class="card-body">
-            <div class="card-image"><img src="figs/method.png" alt="Method step 4 placeholder"></div>
+            <div class="card-image"><img src="figs/method/method_d.png" alt="Method step 4"></div>
             <div class="card-text"><p>Quantify semantic drift and visualize induced changes across attributes/classes.</p></div>
           </div>
         </div>
@@ -236,13 +241,37 @@
 
   <section id="contributions" aria-label="Key contributions">
     <div class="section-content">
-      <h2>Key Contributions</h2>
-      <ul>
-        <li><strong>Semantic Tool for Invariants:</strong> Links classifier null-space geometry to human-readable semantic explanations.</li>
-        <li><strong>Model Comparison:</strong> Compares architectures by measuring semantic leakage into null directions.</li>
-        <li><strong>Open-Vocabulary Class Analysis:</strong> Probes class sensitivity, spurious correlations, and concept-level invariants.</li>
-        <li><strong>Practical Diagnostics:</strong> Supports reproducible single-image and model-level semantic analysis workflows.</li>
-      </ul>
+      <h2>Key Insights</h2>
+      <div class="contrib-grid">
+        <div class="card-insight">
+          <h3>Semantic Tool for Invariants</h3>
+          <div class="contrib-card-body">
+            <div class="contrib-card-image"><img src="figs/insights/insight_1.png" alt="Semantic tool for invariants"></div>
+            <div class="contrib-card-text"><p>SING links classifier null-space geometry and the invariants it induces to human-readable semantic explanations through equivalent-pair analysis.</p></div>
+          </div>
+        </div>
+        <div class="card-insight">
+          <h3>Model Comparison</h3>
+          <div class="contrib-card-body">
+            <div class="contrib-card-image"><img src="figs/insights/insight_2.png" alt="Model comparison contribution"></div>
+            <div class="contrib-card-text"><p>We compare architectures by quantifying semantic leakage into null directions, highlighting how well class semantics are preserved across invariant space.</p></div>
+          </div>
+        </div>
+        <div class="card-insight">
+          <h3>Open-Vocabulary Class Analysis</h3>
+          <div class="contrib-card-body">
+            <div class="contrib-card-image"><img src="figs/insights/insight_3.png" alt="Open-vocabulary class analysis contribution"></div>
+            <div class="contrib-card-text"><p>The framework supports systematic class-level probing to reveal sensitivity to concepts, detect spurious correlations, and inspect semantic invariants.</p></div>
+          </div>
+        </div>
+        <div class="card-insight">
+          <h3>Practical Diagnostics</h3>
+          <div class="contrib-card-body">
+            <div class="contrib-card-image"><img src="figs/insights/insight_4.png" alt="Practical diagnostics contribution"></div>
+            <div class="contrib-card-text"><p>Single-image and model-level workflows provide reproducible semantic diagnostics with both quantitative scores and qualitative visual evidence.</p></div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
