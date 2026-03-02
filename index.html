@@ -58,6 +58,12 @@
     h1 { font-size:2.6rem; font-weight:800; text-align:center; color:var(--accent); line-height:1.05; }
     h2 { font-size:1.8rem; color:#243b8a; margin-bottom:14px; text-align:center; }
     p, li { font-size:1.05rem; line-height:1.6; color:#333; margin:0 0 12px 0; }
+    .authors-container { display:flex; justify-content:center; gap:28px; margin-top:14px; flex-wrap:wrap; align-items:center; }
+    .author { display:flex; flex-direction:column; align-items:center; transition:transform 0.2s; }
+    .author a { margin-top:6px; color:#2b1b6a; font-weight:600; font-size:0.97rem; text-align:center; }
+    .author img { width:68px; height:68px; border-radius:50%; object-fit:cover; margin-bottom:6px; transition:transform 0.25s, box-shadow 0.25s; cursor:pointer; box-shadow:0 6px 12px rgba(0,0,0,0.06); }
+    .author:hover img { transform:scale(1.08); }
+    .vertical-line { border-left:2px solid var(--accent); height:70px; margin:0 28px; align-self:center; }
 
     .btn-row { display:flex; justify-content:center; align-items:center; flex-wrap:wrap; gap:10px; margin-top:16px; }
     .btn-custom {
@@ -74,8 +80,32 @@
     .abstract-text, .abstract-teaser-wrapper { flex:1 1 45%; min-width:280px; display:flex; flex-direction:column; }
     .abstract-teaser-wrapper img { object-fit:contain; width:100%; max-width:520px; border-radius:14px; margin:auto; display:block; }
     @media (max-width:900px) { .abstract-text, .abstract-teaser-wrapper { flex:1 1 100%; } }
-    .method-figure { width:100%; height:680px; border:none; border-radius:14px; background:#fff; box-shadow:0 6px 14px rgba(0,0,0,0.08); object-fit:contain; display:block; }
-    @media (max-width:900px) { .method-figure { height:520px; } }
+    .insights-grid {
+      display:grid;
+      grid-template-columns:1fr;
+      gap:22px;
+      margin-top:14px;
+    }
+    .card-insight {
+      display:flex;
+      flex-direction:column;
+      border-radius:18px;
+      background:linear-gradient(145deg,#fff,#f0f4ff);
+      box-shadow:0 8px 22px rgba(91,124,250,0.12);
+      transition:transform 0.3s ease, box-shadow 0.3s ease;
+      overflow:hidden;
+      padding:20px;
+    }
+    .card-insight:hover { transform:translateY(-6px); box-shadow:0 18px 34px rgba(91,124,250,0.2); }
+    .card-insight h3 { color:var(--accent); margin-bottom:10px; text-align:center; }
+    .card-body { display:flex; gap:20px; align-items:center; }
+    .card-image { flex:0 0 55%; }
+    .card-image img { width:100%; max-width:520px; height:auto; object-fit:contain; border-radius:14px; display:block; margin:auto; }
+    .card-text { flex:0 0 45%; }
+    @media (max-width:900px) {
+      .card-body { flex-direction:column; }
+      .card-image, .card-text { flex:1 1 100%; }
+    }
 
     pre { background:#eaeaea; padding:16px; border-radius:12px; overflow-x:auto; color:#222; }
     footer { text-align:center; padding:44px 20px; font-size:0.95rem; color:#555; }
@@ -95,10 +125,29 @@
   <section id="hero" aria-label="Hero section">
     <div class="section-content">
       <h1>SING: Analyzing Semantic Invariants in Classifiers</h1>
-      <h2>CVPR 2026 (Accepted)</h2>
+      <h2>CVPR 2026</h2>
       <p style="text-align:center;">
-        Official project page for the SING paper.
+        Project page for SING.
       </p>
+      <div class="authors-container">
+        <div class="author">
+          <img src="figs/authors/roy_betser.jfif" alt="Roy Betser">
+          <a href="https://github.com/rbetser" target="_blank" rel="noopener">Roy Betser</a>
+        </div>
+        <div class="author">
+          <img src="figs/authors/yossi_meir.jfif" alt="Meir Yossef Levi">
+          <a href="#" target="_blank" rel="noopener">Meir Yossef Levi</a>
+        </div>
+        <div class="author">
+          <img src="figs/authors/guy_gilboa.jfif" alt="Guy Gilboa">
+          <a href="#" target="_blank" rel="noopener">Guy Gilboa</a>
+        </div>
+        <div class="vertical-line" aria-hidden="true"></div>
+        <div class="author">
+          <img src="figs/technion.png" alt="Harel Yadid">
+          <a href="#" target="_blank" rel="noopener">Harel Yadid</a>
+        </div>
+      </div>
 
       <div class="btn-row" role="toolbar" aria-label="Primary links">
         <a class="btn-custom" href="#" aria-label="Paper link placeholder">
@@ -142,13 +191,40 @@
 
   <section id="method" aria-label="Method section">
     <div class="section-content">
-      <h2>Method Overview</h2>
+      <h2>Method (4-Step Cards)</h2>
       <p>
-        SING decomposes classifier-head weights with SVD to obtain principal/null projectors, maps features to a
-        vision-language space via a translator, constructs equivalent pairs through null-space operations, and
-        measures semantic effects with textual and visual diagnostics.
+        You can replace each card image with a cropped panel later. For now, all cards use `figs/method.png`.
       </p>
-      <img class="method-figure" src="figs/method.png" alt="SING method overview figure">
+      <div class="insights-grid">
+        <div class="card-insight">
+          <h3>1) Extract Null/Principal Projectors</h3>
+          <div class="card-body">
+            <div class="card-image"><img src="figs/method.png" alt="Method step 1 placeholder"></div>
+            <div class="card-text"><p>Decompose classifier-head weights with SVD to obtain principal and null subspaces.</p></div>
+          </div>
+        </div>
+        <div class="card-insight">
+          <h3>2) Train/Load Translator</h3>
+          <div class="card-body">
+            <div class="card-image"><img src="figs/method.png" alt="Method step 2 placeholder"></div>
+            <div class="card-text"><p>Map classifier features into a shared vision-language embedding space.</p></div>
+          </div>
+        </div>
+        <div class="card-insight">
+          <h3>3) Create Equivalent Pair</h3>
+          <div class="card-body">
+            <div class="card-image"><img src="figs/method.png" alt="Method step 3 placeholder"></div>
+            <div class="card-text"><p>Construct equivalent features by null-space projection/manipulation while preserving logits.</p></div>
+          </div>
+        </div>
+        <div class="card-insight">
+          <h3>4) Translate, Measure, Visualize</h3>
+          <div class="card-body">
+            <div class="card-image"><img src="figs/method.png" alt="Method step 4 placeholder"></div>
+            <div class="card-text"><p>Quantify semantic drift and visualize induced changes across attributes/classes.</p></div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -156,10 +232,10 @@
     <div class="section-content">
       <h2>Key Contributions</h2>
       <ul>
-        <li>Semantic interpretation of null-space invariants using equivalent-pair analysis.</li>
-        <li>Cross-architecture protocol to compare semantic leakage into invariant directions.</li>
-        <li>Open-vocabulary class analysis for detecting spurious semantic correlations.</li>
-        <li>Practical single-image workflow with reproducible metrics and generated examples.</li>
+        <li><strong>Semantic Tool for Invariants:</strong> Links classifier null-space geometry to human-readable semantic explanations.</li>
+        <li><strong>Model Comparison:</strong> Compares architectures by measuring semantic leakage into null directions.</li>
+        <li><strong>Open-Vocabulary Class Analysis:</strong> Probes class sensitivity, spurious correlations, and concept-level invariants.</li>
+        <li><strong>Practical Diagnostics:</strong> Supports reproducible single-image and model-level semantic analysis workflows.</li>
       </ul>
     </div>
   </section>
