@@ -106,6 +106,15 @@
     @media (max-width:900px) {
       .insights-grid { grid-template-columns:1fr; }
     }
+    .contrib-grid { display:grid; grid-template-columns:1fr; gap:22px; margin-top:14px; }
+    .contrib-card-body { display:flex; flex-direction:row; gap:20px; align-items:center; }
+    .contrib-card-image { flex:0 0 52%; }
+    .contrib-card-image img { width:100%; max-width:520px; height:auto; object-fit:contain; border-radius:14px; display:block; margin:auto; }
+    .contrib-card-text { flex:0 0 48%; }
+    @media (max-width:900px) {
+      .contrib-card-body { flex-direction:column; }
+      .contrib-card-image, .contrib-card-text { flex:1 1 100%; width:100%; }
+    }
 
     pre { background:#eaeaea; padding:16px; border-radius:12px; overflow-x:auto; color:#222; }
     footer { text-align:center; padding:44px 20px; font-size:0.95rem; color:#555; }
@@ -117,7 +126,7 @@
     <a href="#hero">Home</a>
     <a href="#abstract">Abstract</a>
     <a href="#method">Method</a>
-    <a href="#contributions">Key Contributions</a>
+    <a href="#contributions">Key Insights</a>
     <a href="#repo">Repository</a>
     <a href="#bibtex">BibTeX</a>
   </div>
@@ -193,7 +202,7 @@
 
   <section id="method" aria-label="Method section">
     <div class="section-content">
-      <h2>Method (4-Step Cards)</h2>
+      <h2>Method</h2>
       <p>
         Four-step method view from the paper.
       </p>
@@ -232,13 +241,37 @@
 
   <section id="contributions" aria-label="Key contributions">
     <div class="section-content">
-      <h2>Key Contributions</h2>
-      <ul>
-        <li><strong>Semantic Tool for Invariants:</strong> Links classifier null-space geometry to human-readable semantic explanations.</li>
-        <li><strong>Model Comparison:</strong> Compares architectures by measuring semantic leakage into null directions.</li>
-        <li><strong>Open-Vocabulary Class Analysis:</strong> Probes class sensitivity, spurious correlations, and concept-level invariants.</li>
-        <li><strong>Practical Diagnostics:</strong> Supports reproducible single-image and model-level semantic analysis workflows.</li>
-      </ul>
+      <h2>Key Insights</h2>
+      <div class="contrib-grid">
+        <div class="card-insight">
+          <h3>Semantic Tool for Invariants</h3>
+          <div class="contrib-card-body">
+            <div class="contrib-card-image"><img src="figs/insights/insight_1.png" alt="Semantic tool for invariants"></div>
+            <div class="contrib-card-text"><p>SING links classifier null-space geometry and the invariants it induces to human-readable semantic explanations through equivalent-pair analysis.</p></div>
+          </div>
+        </div>
+        <div class="card-insight">
+          <h3>Model Comparison</h3>
+          <div class="contrib-card-body">
+            <div class="contrib-card-image"><img src="figs/insights/insight_2.png" alt="Model comparison contribution"></div>
+            <div class="contrib-card-text"><p>We compare architectures by quantifying semantic leakage into null directions, highlighting how well class semantics are preserved across invariant space.</p></div>
+          </div>
+        </div>
+        <div class="card-insight">
+          <h3>Open-Vocabulary Class Analysis</h3>
+          <div class="contrib-card-body">
+            <div class="contrib-card-image"><img src="figs/insights/insight_3.png" alt="Open-vocabulary class analysis contribution"></div>
+            <div class="contrib-card-text"><p>The framework supports systematic class-level probing to reveal sensitivity to concepts, detect spurious correlations, and inspect semantic invariants.</p></div>
+          </div>
+        </div>
+        <div class="card-insight">
+          <h3>Practical Diagnostics</h3>
+          <div class="contrib-card-body">
+            <div class="contrib-card-image"><img src="figs/insights/insight_4.png" alt="Practical diagnostics contribution"></div>
+            <div class="contrib-card-text"><p>Single-image and model-level workflows provide reproducible semantic diagnostics with both quantitative scores and qualitative visual evidence.</p></div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
