@@ -132,6 +132,21 @@
       .contrib-card-body { flex-direction:column; }
       .contrib-card-image, .contrib-card-text { flex:1 1 100%; width:100%; }
     }
+    .intuition-wrap {
+      max-width:700px;
+      margin:0 auto;
+      border-radius:16px;
+      background:linear-gradient(145deg,#fff,#f5f7ff);
+      box-shadow:0 8px 20px rgba(91,124,250,0.12);
+      padding:12px;
+    }
+    .intuition-wrap img {
+      width:100%;
+      height:auto;
+      display:block;
+      border-radius:12px;
+      object-fit:contain;
+    }
 
     pre { background:#eaeaea; padding:16px; border-radius:12px; overflow-x:auto; color:#222; }
     footer { text-align:center; padding:44px 20px; font-size:0.95rem; color:#555; }
@@ -288,6 +303,15 @@
             <div class="contrib-card-text"><p>Model-level & single-image workflows provide reproducible semantic diagnostics with both quantitative scores and qualitative visual evidence.</p></div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="intuition" aria-label="Angle to visual intuition">
+    <div class="section-content">
+      <h2>Angle-to-Visual Intuition</h2>
+      <div class="intuition-wrap">
+        <img src="figs/angle_intuition.gif" alt="Angle-to-visual intuition animation">
       </div>
     </div>
   </section>
