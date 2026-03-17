@@ -200,14 +200,15 @@ SING-analyzing-semantic-invariants-classifiers/
 
 ## Citation
 
-BibTeX will be added once camera-ready metadata is finalized.
-
 ```bibtex
-@inproceedings{sing2026,
-  title={SING: Analyzing Semantic Invariants in Classifiers},
-  author={TBD},
-  booktitle={CVPR},
-  year={2026}
+@misc{yadid2026sing,
+  title={Make it SING: Analyzing Semantic Invariants in Classifiers},
+  author={Harel Yadid and Meir Yossef Levi and Roy Betser and Guy Gilboa},
+  year={2026},
+  eprint={2603.14610},
+  archivePrefix={arXiv},
+  primaryClass={cs.CV},
+  url={https://arxiv.org/abs/2603.14610}
 }
 ```
 
