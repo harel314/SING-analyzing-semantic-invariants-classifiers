@@ -7,20 +7,20 @@
   &nbsp;
   <a href="https://harel314.github.io/SING-analyzing-semantic-invariants-classifiers/"><img src="https://img.shields.io/badge/🌐%20Webpage-SING-5b7cfa?style=flat-square" alt="Webpage"></a>
   &nbsp;
-  <a href="#"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab (Coming Soon)"></a>
+  <a href="#" title="Coming Soon"><img src="https://img.shields.io/badge/Colab-Notebook%20(Coming%20Soon)-f9ab00?style=flat-square&logo=googlecolab&logoColor=white" alt="Colab Coming Soon"></a>
 </p>
 
 <p align="center">
   <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-green?style=flat-square" alt="MIT License"></a>
   &nbsp;
-  <img src="https://img.shields.io/badge/Python-3.9%2B-3776ab?style=flat-square&logo=python&logoColor=white" alt="Python 3.9+">
+  <a href="https://www.python.org/downloads/"><img src="https://img.shields.io/badge/Python-3.9%2B-3776ab?style=flat-square&logo=python&logoColor=white" alt="Python 3.9+"></a>
   &nbsp;
-  <img src="https://img.shields.io/badge/CVPR-2026-9b59b6?style=flat-square" alt="CVPR 2026">
+  <a href="https://cvpr.thecvf.com/Conferences/2026"><img src="https://img.shields.io/badge/CVPR-2026-9b59b6?style=flat-square" alt="CVPR 2026"></a>
 </p>
 
 > Official repository for the paper:  
 > **SING: Analyzing Semantic Invariants in Classifiers**  
-> Accepted to **CVPR 2026**.
+> Accepted to **CVPR 2026** · [arXiv](https://arxiv.org/abs/2603.14610) · [HuggingFace](https://huggingface.co/papers/2603.14610) · [Webpage](https://harel314.github.io/SING-analyzing-semantic-invariants-classifiers/) · Colab *(coming soon)*
 
 ![SING teaser](figs/teaser.png)
 
