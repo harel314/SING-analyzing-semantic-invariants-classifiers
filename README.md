@@ -1,13 +1,26 @@
 # SING: Analyzing Semantic Invariants in Classifiers
 
-Paper License: CC BY 4.0  
-Python
+<p align="center">
+  <a href="https://arxiv.org/abs/2603.14610"><img src="https://img.shields.io/badge/arXiv-2603.14610-b31b1b?style=flat-square&logo=arxiv&logoColor=white" alt="arXiv"></a>
+  &nbsp;
+  <a href="https://huggingface.co/papers/2603.14610"><img src="https://img.shields.io/badge/🤗%20HuggingFace-Paper-ffd21e?style=flat-square" alt="HuggingFace"></a>
+  &nbsp;
+  <a href="https://harel314.github.io/SING-analyzing-semantic-invariants-classifiers/"><img src="https://img.shields.io/badge/🌐%20Webpage-SING-5b7cfa?style=flat-square" alt="Webpage"></a>
+  &nbsp;
+  <a href="#"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab (Coming Soon)"></a>
+</p>
+
+<p align="center">
+  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-green?style=flat-square" alt="MIT License"></a>
+  &nbsp;
+  <img src="https://img.shields.io/badge/Python-3.9%2B-3776ab?style=flat-square&logo=python&logoColor=white" alt="Python 3.9+">
+  &nbsp;
+  <img src="https://img.shields.io/badge/CVPR-2026-9b59b6?style=flat-square" alt="CVPR 2026">
+</p>
 
 > Official repository for the paper:  
 > **SING: Analyzing Semantic Invariants in Classifiers**  
 > Accepted to **CVPR 2026**.
-
-Paper (coming soon) • Demo (coming soon) • Webpage (coming soon) • Video (coming soon)
 
 ![SING teaser](figs/teaser.png)
 
@@ -49,9 +62,9 @@ SING follows four core steps:
 
 ## Colab Notebooks
 
-| Notebook | Description |
-| --- | --- |
-| `notebooks/01_single_image_quickstart.ipynb` | Single-image walkthrough: load, project, translate, score, plot |
+| Notebook | Description | Link |
+| --- | --- | --- |
+| `notebooks/01_single_image_quickstart.ipynb` | Single-image walkthrough: load, project, translate, score, plot | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](#) *(coming soon)* |
 
 ---
 
