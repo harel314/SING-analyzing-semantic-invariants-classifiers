@@ -16,7 +16,7 @@ from sing.models.wrappers.base import LoadedModel
 from sing.models.wrappers.classifier_input import ClassifierInputWrapper
 from sing.utils import get_logger
 
-_MODEL_CONFIG_PATH = Path(__file__).resolve().parents[3] / "configs" / "models.yaml"
+_MODEL_CONFIG_PATH = Path(__file__).resolve().parent.parent / "configs" / "models.yaml"
 
 
 @dataclass(frozen=True)
