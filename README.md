@@ -44,12 +44,21 @@ This repository focuses on a practical, lightweight v1 pipeline with no dataset 
 
 ## Installation
 
+If `uv` extension is installed,
+``` bash
+uv sync
+```
+
+Else, in the old fashion way,
+
 ```bash
 python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-pip install -e .
+pip install .
 ```
+
+
 
 ## Requirements
 

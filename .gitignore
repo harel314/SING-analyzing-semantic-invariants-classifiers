@@ -1,5 +1,6 @@
 .venv/
 .cache/
+.cache/huggingface/
 __pycache__/
 *.pyc
 .pytest_cache/
@@ -15,3 +16,4 @@ artifacts/
 *.log
 .DS_Store
 !translators/*/linear/best.pt
+uv.lock
