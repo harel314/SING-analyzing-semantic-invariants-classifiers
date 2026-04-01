@@ -62,9 +62,10 @@ SING follows four core steps:
 
 ## Colab Notebooks
 
-| Notebook | Description | Link |
-| --- | --- | --- |
-| `notebooks/01_single_image_quickstart.ipynb` | Single-image walkthrough: load, project, translate, score, plot | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1MrAkGJXEgDXF3nI_ujQCFUqfy8yLVyxs) |
+| Notebook | Description | Requirements | Link |
+| --- | --- | --- | --- |
+| `notebooks/01_single_image_quickstart.ipynb` | Single-image walkthrough: load, project, translate, score, plot | CPU or any GPU · Colab free tier OK | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1MrAkGJXEgDXF3nI_ujQCFUqfy8yLVyxs) |
+| `notebooks/02_equivalent_image_generation.ipynb` | Generate equivalent image with null-space removed using Karlo UnCLIP | GPU ≥ 10GB VRAM or CPU (slow) · ~7.5GB model download | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1DV_nu0SvxhjcMAZSAIeQOw6HdSNgeLjF) |
 
 ---
 
