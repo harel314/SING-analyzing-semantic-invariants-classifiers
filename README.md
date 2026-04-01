@@ -70,17 +70,21 @@ SING follows four core steps:
 
 ## Installation
 
-If `uv` extension is installed,
+```bash
+git clone https://github.com/harel314/SING-analyzing-semantic-invariants-classifiers.git
+cd SING-analyzing-semantic-invariants-classifiers
+```
+
+If `uv` is installed,
 ``` bash
 uv sync
 ```
 
-Else, in the old fashion way,
+Else,
 
 ```bash
 python -m venv .venv
 source .venv/bin/activate
-pip install -r requirements.txt
 pip install .
 ```
 
