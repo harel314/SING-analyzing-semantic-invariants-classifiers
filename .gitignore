@@ -16,3 +16,4 @@ artifacts/
 *.log
 .DS_Store
 !translators/*/linear/best.pt
+uv.lock
