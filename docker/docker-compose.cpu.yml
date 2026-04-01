@@ -10,6 +10,6 @@ services:
       - HF_HOME=/workspace/.cache/huggingface
     stdin_open: true
     tty: true
-    entrypoint: ["/bin/bash", "-lc", "sleep infinity"]
+    entrypoint: ["/bin/bash", "-lc", "pip install -q /workspace && sleep infinity"]
     ports:
       - "8889:8888"
