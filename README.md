@@ -7,7 +7,7 @@
   &nbsp;
   <a href="https://harel314.github.io/SING-analyzing-semantic-invariants-classifiers/"><img src="https://img.shields.io/badge/🌐%20Webpage-SING-5b7cfa?style=flat-square" alt="Webpage"></a>
   &nbsp;
-  <a href="#" title="Coming Soon"><img src="https://img.shields.io/badge/Colab-Notebook%20(Coming%20Soon)-f9ab00?style=flat-square&logo=googlecolab&logoColor=white" alt="Colab Coming Soon"></a>
+  <a href="https://colab.research.google.com/drive/1MrAkGJXEgDXF3nI_ujQCFUqfy8yLVyxs"><img src="https://img.shields.io/badge/Colab-Notebook-f9ab00?style=flat-square&logo=googlecolab&logoColor=white" alt="Colab Notebook"></a>
 </p>
 
 <p align="center">
@@ -20,7 +20,7 @@
 
 > Official repository for the paper:  
 > **SING: Analyzing Semantic Invariants in Classifiers**  
-> Accepted to **CVPR 2026** · [arXiv](https://arxiv.org/abs/2603.14610) · [HuggingFace](https://huggingface.co/papers/2603.14610) · [Webpage](https://harel314.github.io/SING-analyzing-semantic-invariants-classifiers/) · Colab *(coming soon)*
+> Accepted to **CVPR 2026** · [arXiv](https://arxiv.org/abs/2603.14610) · [HuggingFace](https://huggingface.co/papers/2603.14610) · [Webpage](https://harel314.github.io/SING-analyzing-semantic-invariants-classifiers/) · [Colab](https://colab.research.google.com/drive/1MrAkGJXEgDXF3nI_ujQCFUqfy8yLVyxs)
 
 ![SING teaser](figs/teaser.png)
 
@@ -64,7 +64,7 @@ SING follows four core steps:
 
 | Notebook | Description | Link |
 | --- | --- | --- |
-| `notebooks/01_single_image_quickstart.ipynb` | Single-image walkthrough: load, project, translate, score, plot | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](#) *(coming soon)* |
+| `notebooks/01_single_image_quickstart.ipynb` | Single-image walkthrough: load, project, translate, score, plot | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1MrAkGJXEgDXF3nI_ujQCFUqfy8yLVyxs) |
 
 ---
 
@@ -192,8 +192,7 @@ This repo includes translator checkpoints for many backbones, so you can choose 
 
 ```text
 SING-analyzing-semantic-invariants-classifiers/
-├── src/                     # Main Python package (sing)
-├── configs/                 # Model/runtime/translator config files
+├── src/                     # Main Python package (sing, includes configs/)
 ├── translators/             # Linear translator checkpoints + metadata
 ├── samples/                 # Small example images for quick testing
 ├── notebooks/               # Reproducible notebook demos
