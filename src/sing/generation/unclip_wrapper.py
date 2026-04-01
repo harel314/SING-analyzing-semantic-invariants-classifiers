@@ -28,6 +28,9 @@ class KakaoUnclipWrapper:
             torch_dtype=torch_dtype,
         ).to(device)
         self.pipe.set_progress_bar_config(disable=True)
+        if device.type == "cuda" and torch.cuda.get_device_properties(device).total_memory < 10 * 1024 ** 3:
+            self.pipe.enable_model_cpu_offload()
+            self.logger.info("Enabled CPU offload (VRAM < 10GB)")
         self.logger.info("Loaded UnCLIP backend='%s' on %s", KAKAO_MODEL_ID, str(device))
 
     @staticmethod
