@@ -25,6 +25,7 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = ["pytest>=8.0"]
+space = ["gradio>=4.0"]
 
 [project.scripts]
 sing = "sing.cli:main"
